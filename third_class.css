@@ -16,3 +16,35 @@ tbody tr:nth-child(even){
 th{
     background-color: rgb(214, 136, 90);
 }
+
+form{
+    width: 50%;
+    margin: 0 auto;
+    text-align: left;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+input[type="text"], input[type="email"], input[type="password"], select{
+    border: 1px solid black;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: large;
+}
+
+input[type="radio"]{
+    margin-right: 10px;
+    font-size: larger;
+}
+
+button{
+    background-color: rgb(214, 136, 90);
+    color: white;
+    padding: 10px;
+    border: none;
+    width: 50%;
+    font-size: large;
+    margin: 0 auto;
+    display: block;
+}
