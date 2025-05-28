@@ -1,19 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Add Product</title>
+{% extends "master.html" %}
+  
+  {% block body %}
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #f4f7f8;
       margin: 0;
       padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
+      
     }
 
     .form-container {
@@ -23,6 +17,8 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       width: 100%;
       max-width: 500px;
+      margin: 0 auto;
+      margin-top: 3em;
     }
 
     .form-container h2 {
@@ -79,9 +75,7 @@
       background-color: #45a049;
     }
   </style>
-</head>
-<body>
-
+  
   <form class="form-container">
     <h2>Add New Product</h2>
 
@@ -112,6 +106,5 @@
 
     <button type="submit" class="submit-btn">Add Product</button>
   </form>
+  {% endblock body %}
 
-</body>
-</html>

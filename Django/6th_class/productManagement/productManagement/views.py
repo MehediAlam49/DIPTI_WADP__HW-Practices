@@ -1,10 +1,15 @@
 from django.shortcuts import render
+from productApp.models import *
 
 # Create your views here.
 def home(request):
-    return render(request, 'home.html')
+    customerData = customerModel.objects.all()
+    context = {'data': customerData}
+    return render(request, 'home.html', context)
 def product(request):
-    return render(request, 'product.html')
+    productData = productModel.objects.all()
+    context = {'data': productData}
+    return render(request, 'product.html', context)
 def addProduct(request):
     return render(request, 'addProduct.html')
 def addCustomer(request):
