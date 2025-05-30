@@ -4,7 +4,8 @@ from store.models import *
 def home(request):
     return render(request, 'home.html')
 def user(request):
-    return render(request, 'user.html')
+    context = {'userData': userModel.objects.all()}
+    return render(request, 'user.html',context)
 def books(request):
     return render(request, 'books.html')
 def addStudent(request):
