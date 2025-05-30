@@ -45,13 +45,13 @@
   </style>
 
 <nav>
-    <div class="logo">Product Manager</div>
+    <div class="logo">Product Management</div>
     <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Books</a></li>
-      <li><a href="#">Users</a></li>
-      <li><a href="#">Students</a></li>
-      <li><a href="#">Add Book</a></li>
-      <li><a href="#">Add Student</a></li>
+      <li><a href="{% url "home" %}">Home</a></li>
+      <li><a href="{% url "books" %}">Books</a></li>
+      <li><a href="{% url "user" %}">Users</a></li>
+      <li><a href="{% url "studentList" %}">Students</a></li>
+      <li><a href="{% url "addBook" %}">Add Book</a></li>
+      <li><a href="{% url "addStudent" %}">Add Student</a></li>
     </ul>
   </nav>

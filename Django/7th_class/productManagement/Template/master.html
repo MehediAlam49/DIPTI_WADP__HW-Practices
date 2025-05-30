@@ -29,11 +29,10 @@
   </style>
 </head>
 <body>
-    {% import  %}
+    {% include "navber.html" %}
 
-  <div class="container">
-    <h1>Welcome to the Product Management Dashboard</h1>
-    <p>Use the navigation bar to manage books, users, and students efficiently. You can also add new books and students directly from here.</p>
-  </div>
+    {% block body %}
+    
+    {% endblock body %}
 </body>
 </html>
