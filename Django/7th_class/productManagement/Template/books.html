@@ -43,13 +43,15 @@
         </tr>
       </thead>
       <tbody>
+        {% for data in booksData %}
         <tr>
-          <td>The Great Gatsby</td>
-          <td>F. Scott Fitzgerald</td>
-          <td>$10.99</td>
-          <td>25</td>
-          <td>1925-04-10</td>
-        </tr>
+            <td>{{ data.title }}</td>
+            <td>{{ data.author }}</td>
+            <td>{{ data.price }}</td>
+            <td>{{ data.stock }}</td>
+            <td>{{ data.publish_date }}</td>
+          </tr>
+        {% endfor %}
       </tbody>
     </table>
   </div>

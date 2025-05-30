@@ -42,13 +42,15 @@
         </tr>
       </thead>
       <tbody>
+        {% for data in studentData %}
         <tr>
-          <td>The Great Gatsby</td>
-          <td>F. Scott Fitzgerald</td>
-          <td>$10.99</td>
-          <td>25</td>
-          <td>1925-04-10</td>
-        </tr>
+            <td>{{ data.name }}</td>
+            <td>{{ data.department }}</td>
+            <td>{{ data.semester }}</td>
+            <td>{{ data.age }}</td>
+            <td>{{ data.phone }}</td>
+          </tr>
+        {% endfor %}
        
       </tbody>
     </table>

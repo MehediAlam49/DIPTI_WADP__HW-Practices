@@ -73,7 +73,8 @@
 
   <div class="form-container">
     <h2>Add New Student</h2>
-    <form>
+    <form action="" method="POST">
+        {% csrf_token %}
       <div class="form-group">
         <label for="name">Name</label>
         <input type="text" id="name" name="name" required />
@@ -86,7 +87,7 @@
 
       <div class="form-group">
         <label for="semester">semester</label>
-        <input type="text" id="semester" name="semester" step="0.01" required />
+        <input type="text" id="semester" name="semester" required />
       </div>
 
       <div class="form-group">
