@@ -14,27 +14,16 @@
           </tr>
         </thead>
         <tbody class="divide-y divide-gray-200">
+          {% for book in bookData %}
           <tr class="hover:bg-gray-50 transition">
-            <td class="px-6 py-4 font-medium text-gray-800">The Great Gatsby</td>
-            <td class="px-6 py-4">F. Scott Fitzgerald</td>
-            <td class="px-6 py-4">1925-04-10</td>
-            <td class="px-6 py-4">$10.99</td>
-            <td class="px-6 py-4">34</td>
+            <td class="px-6 py-4 font-medium text-gray-800">{{ book.title }}</td>
+            <td class="px-6 py-4">{{ book.author }}</td>
+            <td class="px-6 py-4">{{ book.date }}</td>
+            <td class="px-6 py-4">{{ book.price }}</td>
+            <td class="px-6 py-4">{{ book.stock }}</td>
           </tr>
-          <tr class="hover:bg-gray-50 transition">
-            <td class="px-6 py-4 font-medium text-gray-800">1984</td>
-            <td class="px-6 py-4">George Orwell</td>
-            <td class="px-6 py-4">1949-06-08</td>
-            <td class="px-6 py-4">$9.49</td>
-            <td class="px-6 py-4">12</td>
-          </tr>
-          <tr class="hover:bg-gray-50 transition">
-            <td class="px-6 py-4 font-medium text-gray-800">To Kill a Mockingbird</td>
-            <td class="px-6 py-4">Harper Lee</td>
-            <td class="px-6 py-4">1960-07-11</td>
-            <td class="px-6 py-4">$12.99</td>
-            <td class="px-6 py-4">19</td>
-          </tr>
+          {% endfor %}
+          
           <!-- Add more rows as needed -->
         </tbody>
       </table>

@@ -4,9 +4,11 @@ from library.models import *
 def home(request):
     return render(request, 'home.html')
 def book(request):
-    return render(request, 'book.html')
+    context = {'bookData': bookModel.objects.all()}
+    return render(request, 'book.html',context)
 def studentList(request):
-    return render(request, 'studentList.html')
+    context = {'studentData': studentModel.objects.all()}
+    return render(request, 'studentList.html',context)
 def addBook(request):
     return render(request, 'addBook.html')
 def addStudent(request):

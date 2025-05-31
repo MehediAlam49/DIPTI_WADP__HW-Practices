@@ -13,12 +13,14 @@
           </tr>
         </thead>
         <tbody class="divide-y divide-gray-200">
+          {% for student in studentData %}
           <tr class="hover:bg-gray-50 transition">
-            <td class="px-6 py-4 font-medium text-gray-800">The Great Gatsby</td>
-            <td class="px-6 py-4">F. Scott Fitzgerald</td>
-            <td class="px-6 py-4">1925-04-10</td>
-            <td class="px-6 py-4">$10.99</td>
+            <td class="px-6 py-4 font-medium text-gray-800">{{ student.name }}</td>
+            <td class="px-6 py-4">{{ student.department }}</td>
+            <td class="px-6 py-4">{{ student.semester }}</td>
+            <td class="px-6 py-4">{{ student.date }}</td>
           </tr>
+          {% endfor %}
           
           <!-- Add more rows as needed -->
         </tbody>
