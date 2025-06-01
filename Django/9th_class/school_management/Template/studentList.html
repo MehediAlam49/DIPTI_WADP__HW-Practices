@@ -24,86 +24,33 @@
       </thead>
       <tbody class="divide-y divide-gray-200">
         <!-- Row Example -->
+        {% for student in studentData %}
         <tr class="hover:bg-purple-50 transition">
-          <td class="px-6 py-4">Alice Johnson</td>
-          <td class="px-6 py-4">10-A</td>
-          <td class="px-6 py-4">Female</td>
-          <td class="px-6 py-4">123 Oak Street</td>
-          <td class="px-6 py-4 text-center space-x-2">
-            <a
-              href="#"
-              class="bg-blue-500 text-white px-4 py-1 rounded-full text-xs hover:bg-blue-600 transition"
-              >Edit</a
-            >
-            <a
-              href="#"
-              class="bg-red-500 text-white px-4 py-1 rounded-full text-xs hover:bg-red-600 transition"
-              >Delete</a
-            >
-            <a
-              href="#"
-              class="bg-green-500 text-white px-4 py-1 rounded-full text-xs hover:bg-red-600 transition"
-              >View</a
-            >
-          </td>
-        </tr>
+            <td class="px-6 py-4">{{ student.name }}</td>
+            <td class="px-6 py-4">{{ student.class_name }}</td>
+            <td class="px-6 py-4">{{ student.gender }}</td>
+            <td class="px-6 py-4">{{ student.address }}</td>
+            <td class="px-6 py-4 text-center space-x-2">
+              <a
+                href="#"
+                class="bg-blue-500 text-white px-4 py-1 rounded-full text-xs hover:bg-blue-600 transition"
+                >Edit</a
+              >
+              <a
+                href="#"
+                class="bg-red-500 text-white px-4 py-1 rounded-full text-xs hover:bg-red-600 transition"
+                >Delete</a
+              >
+              <a
+                href="#"
+                class="bg-green-500 text-white px-4 py-1 rounded-full text-xs hover:bg-red-600 transition"
+                >View</a
+              >
+            </td>
+          </tr>
+        {% endfor %}
 
-        <tr class="bg-gray-50 hover:bg-purple-50 transition">
-          <td class="px-6 py-4">Brian Smith</td>
-          <td class="px-6 py-4">9-B</td>
-          <td class="px-6 py-4">Male</td>
-          <td class="px-6 py-4">456 Pine Avenue</td>
-          <td class="px-6 py-4 text-center space-x-2">
-            <button
-              class="bg-blue-500 text-white px-4 py-1 rounded-full text-xs hover:bg-blue-600 transition"
-            >
-              Edit
-            </button>
-            <button
-              class="bg-red-500 text-white px-4 py-1 rounded-full text-xs hover:bg-red-600 transition"
-            >
-              Delete
-            </button>
-          </td>
-        </tr>
-
-        <tr class="hover:bg-purple-50 transition">
-          <td class="px-6 py-4">Chloe Williams</td>
-          <td class="px-6 py-4">11-C</td>
-          <td class="px-6 py-4">Female</td>
-          <td class="px-6 py-4">789 Maple Drive</td>
-          <td class="px-6 py-4 text-center space-x-2">
-            <button
-              class="bg-blue-500 text-white px-4 py-1 rounded-full text-xs hover:bg-blue-600 transition"
-            >
-              Edit
-            </button>
-            <button
-              class="bg-red-500 text-white px-4 py-1 rounded-full text-xs hover:bg-red-600 transition"
-            >
-              Delete
-            </button>
-          </td>
-        </tr>
-
-        <tr class="bg-gray-50 hover:bg-purple-50 transition">
-          <td class="px-6 py-4">David Brown</td>
-          <td class="px-6 py-4">12-A</td>
-          <td class="px-6 py-4">Male</td>
-          <td class="px-6 py-4">101 Cedar Lane</td>
-          <td class="px-6 py-4 text-center space-x-2">
-            <button
-              class="bg-blue-500 text-white px-4 py-1 rounded-full text-xs hover:bg-blue-600 transition"
-            >
-              Edit
-            </button>
-            <button
-              class="bg-red-500 text-white px-4 py-1 rounded-full text-xs hover:bg-red-600 transition"
-            >
-              Delete
-            </button>
-          </td>
-        </tr>
+        
       </tbody>
     </table>
   </div>

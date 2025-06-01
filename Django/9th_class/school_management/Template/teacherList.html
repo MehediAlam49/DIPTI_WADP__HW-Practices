@@ -24,29 +24,31 @@
       </thead>
       <tbody class="divide-y divide-gray-200">
         <!-- Row Example -->
+        {% for teacher in teacherData %}
         <tr class="hover:bg-purple-50 transition">
-          <td class="px-6 py-4">Alice Johnson</td>
-          <td class="px-6 py-4">Lead teacher</td>
-          <td class="px-6 py-4">Female</td>
-          <td class="px-6 py-4">123 Oak Street</td>
-          <td class="px-6 py-4 text-center space-x-2">
-            <a
-              href="#"
-              class="bg-blue-500 text-white px-4 py-1 rounded-full text-xs hover:bg-blue-600 transition"
-              >Edit</a
-            >
-            <a
-              href="#"
-              class="bg-red-500 text-white px-4 py-1 rounded-full text-xs hover:bg-red-600 transition"
-              >Delete</a
-            >
-            <a
-              href="#"
-              class="bg-green-500 text-white px-4 py-1 rounded-full text-xs hover:bg-red-600 transition"
-              >View</a
-            >
-          </td>
-        </tr>
+            <td class="px-6 py-4">{{ teacher.name }}</td>
+            <td class="px-6 py-4">{{ teacher.designation }}</td>
+            <td class="px-6 py-4">{{ teacher.gender }}</td>
+            <td class="px-6 py-4">{{ teacher.address }}</td>
+            <td class="px-6 py-4 text-center space-x-2">
+              <a
+                href="#"
+                class="bg-blue-500 text-white px-4 py-1 rounded-full text-xs hover:bg-blue-600 transition"
+                >Edit</a
+              >
+              <a
+                href="#"
+                class="bg-red-500 text-white px-4 py-1 rounded-full text-xs hover:bg-red-600 transition"
+                >Delete</a
+              >
+              <a
+                href="#"
+                class="bg-green-500 text-white px-4 py-1 rounded-full text-xs hover:bg-red-600 transition"
+                >View</a
+              >
+            </td>
+          </tr>
+        {% endfor %}
 
       </tbody>
     </table>
