@@ -1,1 +1,31 @@
-ECHO is on.
+{% extends "master.html" %}
+
+{% block body %}
+<!-- Hero Section -->
+<section class="text-center py-20 px-6">
+  <h2 class="text-4xl font-bold text-purple-800 mb-4">Welcome to EduTrack</h2>
+  <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-6">
+    Manage your school efficiently — from student records to teacher performance, all in one sleek dashboard.
+  </p>
+  <a href="#" class="bg-purple-600 text-white px-6 py-3 rounded-full shadow hover:bg-purple-700 transition">
+    Get Started
+  </a>
+</section>
+
+<!-- Features Section -->
+<section class="max-w-6xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-3 gap-10">
+  <div class="bg-white p-6 rounded-2xl shadow hover:shadow-xl transition">
+    <h3 class="text-xl font-semibold text-purple-700 mb-2">Student Management</h3>
+    <p>Track student admissions, attendance, and grades with ease.</p>
+  </div>
+  <div class="bg-white p-6 rounded-2xl shadow hover:shadow-xl transition">
+    <h3 class="text-xl font-semibold text-purple-700 mb-2">Teacher Dashboard</h3>
+    <p>Manage teacher schedules, evaluations, and payroll.</p>
+  </div>
+  <div class="bg-white p-6 rounded-2xl shadow hover:shadow-xl transition">
+    <h3 class="text-xl font-semibold text-purple-700 mb-2">Classroom Scheduling</h3>
+    <p>Create, edit, and track class timetables and course materials.</p>
+  </div>
+</section>
+{% endblock body %}
+
