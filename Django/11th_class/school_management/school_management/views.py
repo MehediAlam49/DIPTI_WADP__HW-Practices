@@ -52,8 +52,19 @@ def addStudent(request):
 def deleteStudent(request,myid):
     student = studentModel.objects.get(id=myid).delete()
     return redirect(studentList)
-def editStudent(request):
-    return render(request, 'editStudent.html')
+def editStudent(request,myid):
+    studentData = studentModel.objects.get(id=myid)
+    if request.method == 'POST':
+        student = studentModel(
+            id = myid,
+            name = request.POST.get('name'),
+            class_name = request.POST.get('class_name'),
+            gender = request.POST.get('gender'),
+            address = request.POST.get('address'),
+        )
+        student.save()
+        return redirect('studentList')
+    return render(request, 'editStudent.html', {'student': studentData})
 def studentList(request):
     query ={'studentData': studentModel.objects.all()}
     return render(request, 'studentList.html',query)
