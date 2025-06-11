@@ -49,6 +49,9 @@ def addStudent(request):
         student.save()
         return redirect('studentList')
     return render(request, 'addStudent.html')
+def deleteStudent(request,myid):
+    student = studentModel.objects.get(id=myid).delete()
+    return redirect(studentList)
 def editStudent(request):
     return render(request, 'editStudent.html')
 def studentList(request):
