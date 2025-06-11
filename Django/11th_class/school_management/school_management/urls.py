@@ -10,6 +10,7 @@ urlpatterns = [
     path('addCourse/', addCourse, name='addCourse'),
     path('editCourse/<str:myid>', editCourse, name='editCourse'),
     path('deleteCourse/<str:myid>', deleteCourse, name='deleteCourse'),
+    path('viewCourse/<str:myid>', viewCourse, name='viewCourse'),
     path('courseList/', courseList, name='courseList'),
 
     path('addStudent/', addStudent, name='addStudent'),

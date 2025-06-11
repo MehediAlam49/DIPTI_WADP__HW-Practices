@@ -31,6 +31,9 @@ def editCourse(request,myid):
 def deleteCourse(request,myid):
     course = courseModel.objects.get(id=myid).delete()
     return redirect('courseList')
+def viewCourse(request,myid):
+    courseData = courseModel.objects.get(id=myid)
+    return render(request, 'viewCourse.html', {'course':courseData})
 def courseList(request):
     query = {'courseData': courseModel.objects.all()}
     return render(request, 'courseList.html',query)
