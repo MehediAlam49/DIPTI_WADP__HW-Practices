@@ -20,6 +20,7 @@ urlpatterns = [
     path('studentList/', studentList, name='studentList'),
 
     path('addTeacher/', addTeacher, name='addTeacher'),
-    path('editTeacher/', editTeacher, name='editTeacher'),
+    path('editTeacher/<str:myid>', editTeacher, name='editTeacher'),
+    path('deleteTeacher/<str:myid>', deleteTeacher, name='deleteTeacher'),
     path('teacherList/', teacherList, name='teacherList'),
 ]

@@ -83,8 +83,22 @@ def addTeacher(request):
         teacher.save()
         return redirect('teacherList')
     return render(request, 'addTeacher.html')
-def editTeacher(request):
-    return render(request, 'editTeacher.html')
+def editTeacher(request,myid):
+    teacherData = teacherModel.objects.get(id=myid)
+    if request.method == 'POST':
+        teacher = teacherModel(
+            id = myid,
+            name = request.POST.get('name'),
+            designation = request.POST.get('designation'),
+            gender = request.POST.get('gender'),
+            address = request.POST.get('address'),
+        )
+        teacher.save()
+        return redirect('teacherList')
+    return render(request, 'editTeacher.html', {'teacher':teacherData})
+def deleteTeacher(request,myid):
+    teacher = teacherModel.objects.get(id=myid).delete()
+    return redirect(teacherList)
 def teacherList(request):
     query = {'teacherData': teacherModel.objects.all()}
     return render(request, 'teacherList.html',query)
