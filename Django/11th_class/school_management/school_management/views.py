@@ -65,6 +65,9 @@ def editStudent(request,myid):
         student.save()
         return redirect('studentList')
     return render(request, 'editStudent.html', {'student': studentData})
+def viewStudent(request, myid):
+    studentData = studentModel.objects.get(id=myid)
+    return render(request, 'viewStudent.html',{'student':studentData})
 def studentList(request):
     query ={'studentData': studentModel.objects.all()}
     return render(request, 'studentList.html',query)
