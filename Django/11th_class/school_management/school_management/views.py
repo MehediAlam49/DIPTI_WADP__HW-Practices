@@ -99,6 +99,9 @@ def editTeacher(request,myid):
 def deleteTeacher(request,myid):
     teacher = teacherModel.objects.get(id=myid).delete()
     return redirect(teacherList)
+def viewTeacher(request, myid):
+    teacherData = teacherModel.objects.get(id=myid)
+    return render(request, 'viewTeacher.html',{'teacher':teacherData})
 def teacherList(request):
     query = {'teacherData': teacherModel.objects.all()}
     return render(request, 'teacherList.html',query)
