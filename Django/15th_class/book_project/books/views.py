@@ -1,8 +1,9 @@
 from django.shortcuts import render
-
+from books.models import *
 # Create your views here.
 def bookList(request):
-    return render(request, 'bookList.html')
+    bookData = bookModel.objects.all()
+    return render(request, 'bookList.html', {"books": bookData})
 def addBook(request):
     return render(request, 'addBook.html')
 def editBook(request):

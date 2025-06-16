@@ -8,4 +8,5 @@ urlpatterns = [
     path('', bookList, name='bookList'),
     path('add-Book/', addBook, name='addBook'),
     path('edit-Book/', editBook, name='editBook'),
+    path('delete-Book/', deleteBook, name='deleteBook'),
 ]
