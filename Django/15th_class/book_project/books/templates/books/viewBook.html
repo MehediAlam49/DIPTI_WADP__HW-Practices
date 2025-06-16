@@ -13,7 +13,6 @@
   }
 
   table {
-    
     border-collapse: collapse;
     background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
@@ -77,24 +76,17 @@
         <th>Author</th>
         <th>Published Date</th>
         <th>Description</th>
-        <th>Action</th>
       </tr>
     </thead>
     <tbody>
-      {% for book in books %}
       <tr>
-        <td>{{book.title}}</td>
-        <td>{{book.author}}</td>
-        <td>{{book.publishedDate}}</td>
-        <td>{{book.description}}</td>
+        <td>{{books.title}}</td>
+        <td>{{books.author}}</td>
+        <td>{{books.publishedDate}}</td>
+        <td>{{books.description}}</td>
         
-        <td class="action-buttons">
-          <a href="{% url "viewBook" book.id %}" class="view-btn">View</a>
-          <a href="{% url "editBook" book.id %}" class="edit-btn">Edit</a>
-          <a href="{% url "deleteBook" book.id %}" class="delete-btn">Delete</a>
-        </td>
       </tr>
-      {% endfor %}
+     
       
     </tbody>
   </table>
