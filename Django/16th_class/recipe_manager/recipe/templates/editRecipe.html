@@ -1,1 +1,64 @@
-ECHO is on.
+{% extends "master.html" %}
+{% block body %}
+<style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .form-section {
+      background-color: #fff;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .form-control:focus {
+      box-shadow: none;
+      border-color: #0d6efd;
+    }
+  </style>
+
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="form-section">
+          <h2 class="mb-4 text-center">Edit Recipe</h2>
+          <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <!-- Image Upload -->
+            <div class="mb-3">
+              <label for="recipeImage" class="form-label">Recipe Image</label>
+              <img src="{{recipe.recipeImage}}" class="card-img-top" alt="Pasta">
+              <input class="form-control" type="file" id="recipeImage" name="recipeImage" accept="image/*">
+            </div>
+  
+            <!-- Title -->
+            <div class="mb-3">
+              <label for="recipeTitle" class="form-label">Recipe Title</label>
+              <input type="text" class="form-control" id="recipeTitle" name="recipeTitle" value="{{recipe.recipeTitle}}" placeholder="e.g., Spaghetti Carbonara" required>
+            </div>
+  
+            <!-- Description -->
+            <div class="mb-3">
+              <label for="recipeDescription" class="form-label">Description</label>
+              <textarea class="form-control" id="recipeDescription" name="recipeDescription" rows="2" placeholder="Briefly describe your recipe" required>{{recipe.recipeDescription}}</textarea>
+            </div>
+  
+            <!-- Ingredients -->
+            <div class="mb-3">
+              <label for="recipeIngredients" class="form-label">Ingredients</label>
+              <textarea class="form-control" id="recipeIngredients" name="recipeIngredients" rows="4" placeholder="List ingredients, one per line" required>{{recipe.recipeIngredients}}</textarea>
+            </div>
+  
+            <!-- Instructions -->
+            <div class="mb-4">
+              <label for="recipeInstructions" class="form-label">Instructions</label>
+              <textarea class="form-control" id="recipeInstructions" name="recipeInstructions" rows="5" placeholder="Write the steps to prepare the recipe" required>{{recipe.recipeInstructions}}</textarea>
+            </div>
+  
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary w-30 mx-auto d-grid">Update Recipe</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock body %}

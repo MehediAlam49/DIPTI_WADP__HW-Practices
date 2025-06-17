@@ -1,1 +1,51 @@
-ECHO is on.
+{% extends "master.html" %}
+{% block body %}
+<style>
+    .recipe-card {
+      transition: transform 0.3s ease;
+    }
+    .recipe-card:hover {
+      transform: scale(1.02);
+    }
+    .card-img-top {
+      height: 200px;
+      object-fit: cover;
+    }
+    .ingredients, .instructions {
+      font-size: 0.9rem;
+    }
+  </style>
+
+  <div class="container py-5">
+    <div class="row g-4">
+  
+      <!-- Recipe Card 1 -->
+      {% for recipe in recipes %}
+      <div class="col-md-6 col-lg-4">
+        <div class="card recipe-card shadow-sm">
+          <img src="{{recipe.recipeImage}}" class="card-img-top" alt="Pasta">
+          <div class="card-body">
+            <h5 class="card-title">{{recipe.recipeTitle}}</h5>
+            <p class="card-text">{{recipe.recipeDescription}}</p>
+            <h6>Ingredients:</h6>
+            <p class="card-text">{{recipe.recipeIngredients}}</p>
+            <h6>Instructions:</h6>
+            <p class="card-text">{{recipe.recipeInstructions}}</p>
+            <div class="d-flex gap-3">
+                <a href="{% url "viewRecipe" recipe.id %}" class="btn btn-primary ">View</a>
+                <a href="{% url "editRecipe" recipe.id %}" class="btn btn-success ">Edit</a>
+                <a href="{% url "deleteRecipe" recipe.id %}" class="btn btn-danger ">Delete</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      {% endfor %}
+  
+  
+      <!-- Add more cards as needed -->
+  
+    </div>
+  </div>
+{% endblock body %}
+
