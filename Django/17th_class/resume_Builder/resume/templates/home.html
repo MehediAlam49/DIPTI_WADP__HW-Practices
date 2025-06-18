@@ -1,1 +1,59 @@
-ECHO is on.
+{% extends "master.html" %}
+{% block body %}
+<style>
+    body {
+      background-color: #f8f9fa;
+    }
+    table img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+    .table th, .table td {
+      vertical-align: middle;
+    }
+    .actions button {
+      margin-right: 5px;
+    }
+    .table-container {
+      overflow-x: auto;
+    }
+  </style>
+
+  <div class="container-fluid">
+    <h2 class="my-4 text-center">Resume List</h2>
+
+    <div class="table-container shadow p-3 bg-white rounded">
+      <table class="table table-hover table-bordered align-middle">
+        <thead class="table-dark text-center">
+          <tr>
+            <th>Profile</th>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody class="text-center">
+          <tr>
+            <td><img src="https://via.placeholder.com/60" alt="Profile Picture"></td>
+            <td>John Doe</td>
+            <td>john@example.com</td>
+            <td>+123456789</td>
+            <td>123 Street, City</td>
+            
+            <td class="actions">
+              <a href="#" class="btn btn-sm btn-success">View</a>
+              <a href="#" class="btn btn-sm btn-primary">Edit</a>
+              <a href="#" class="btn btn-sm btn-danger">Delete</a>
+            </td>
+          </tr>
+          <!-- You can duplicate <tr>...</tr> for more entries -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+{% endblock body %}
+

@@ -1,1 +1,111 @@
-ECHO is on.
+{% extends "master.html" %}
+{% block body %}
+<style>
+    body {
+      background-color: #f0f2f5;
+    }
+    .form-container {
+      max-width: 900px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+    .form-title {
+      text-align: center;
+      margin-bottom: 30px;
+      font-weight: 600;
+      color: #343a40;
+    }
+  </style>
+
+  <div class="form-container mt-4">
+    <h3 class="form-title">Add Resume</h3>
+    <form>
+      <div class="row g-3">
+
+        <div class="col-md-6">
+          <label for="fullName" class="form-label">Full Name</label>
+          <input type="text" class="form-control" id="fullName" placeholder="Enter full name" required>
+        </div>
+
+        <div class="col-md-6">
+          <label for="profilePicture" class="form-label">Profile Picture</label>
+          <input type="file" class="form-control" id="profilePicture" accept="image/*">
+        </div>
+
+        <div class="col-md-6">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" placeholder="Enter email" required>
+        </div>
+
+        <div class="col-md-6">
+          <label for="phone" class="form-label">Phone</label>
+          <input type="text" class="form-control" id="phone" placeholder="Enter phone number" required>
+        </div>
+
+        <div class="col-12">
+          <label for="address" class="form-label">Address</label>
+          <input type="text" class="form-control" id="address" placeholder="Enter address">
+        </div>
+
+        <div class="col-12">
+          <label for="summary" class="form-label">Summary</label>
+          <textarea class="form-control" id="summary" rows="3" placeholder="Short professional summary"></textarea>
+        </div>
+
+        <div class="col-md-6">
+          <label for="degree" class="form-label">Degree</label>
+          <input type="text" class="form-control" id="degree" placeholder="e.g., BSc in Computer Science">
+        </div>
+
+        <div class="col-md-6">
+          <label for="institute" class="form-label">Institute Name</label>
+          <input type="text" class="form-control" id="institute" placeholder="e.g., XYZ University">
+        </div>
+
+        <div class="col-md-6">
+          <label for="gradYear" class="form-label">Year of Graduation</label>
+          <input type="number" class="form-control" id="gradYear" placeholder="e.g., 2022">
+        </div>
+
+        <div class="col-md-6">
+          <label for="company" class="form-label">Company Name</label>
+          <input type="text" class="form-control" id="company" placeholder="e.g., ABC Technologies">
+        </div>
+
+        <div class="col-md-6">
+          <label for="position" class="form-label">Position</label>
+          <input type="text" class="form-control" id="position" placeholder="e.g., Frontend Developer">
+        </div>
+
+        <div class="col-md-6">
+          <label for="experience" class="form-label">Years of Experience</label>
+          <input type="number" class="form-control" id="experience" placeholder="e.g., 3">
+        </div>
+
+        <div class="col-12">
+          <label for="skills" class="form-label">Skills</label>
+          <input type="text" class="form-control" id="skills" placeholder="e.g., HTML, CSS, JavaScript, React">
+        </div>
+
+        <div class="col-12">
+          <label for="hobbies" class="form-label">Hobbies</label>
+          <input type="text" class="form-control" id="hobbies" placeholder="e.g., Reading, Chess, Travel">
+        </div>
+
+        <div class="col-12">
+          <label for="achievements" class="form-label">Achievements</label>
+          <textarea class="form-control" id="achievements" rows="2" placeholder="List notable achievements..."></textarea>
+        </div>
+
+        <div class="col-12 text-center">
+          <button type="submit" class="btn btn-success mt-3 px-4">Submit Resume</button>
+        </div>
+
+      </div>
+    </form>
+  </div>
+{% endblock body %}
+
