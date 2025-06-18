@@ -37,19 +37,21 @@
           </tr>
         </thead>
         <tbody class="text-center">
+          {% for resume in resume %}
           <tr>
-            <td><img src="https://via.placeholder.com/60" alt="Profile Picture"></td>
-            <td>John Doe</td>
-            <td>john@example.com</td>
-            <td>+123456789</td>
-            <td>123 Street, City</td>
+            <td><img src="{{resume.profilePic}}" alt="Profile Picture"></td>
+            <td>{{resume.fullName}}</td>
+            <td>{{resume.email}}</td>
+            <td>{{resume.phone}}</td>
+            <td>{{resume.address}}</td>
             
             <td class="actions">
-              <a href="#" class="btn btn-sm btn-success">View</a>
-              <a href="#" class="btn btn-sm btn-primary">Edit</a>
-              <a href="#" class="btn btn-sm btn-danger">Delete</a>
+              <a href="{% url "viewResume" resume.id %}" class="btn btn-sm btn-success">View</a>
+              <a href="{% url "editResume" resume.id %}" class="btn btn-sm btn-primary">Edit</a>
+              <a href="{% url "deleteResume" resume.id %}" class="btn btn-sm btn-danger">Delete</a>
             </td>
           </tr>
+          {% endfor %}
           <!-- You can duplicate <tr>...</tr> for more entries -->
         </tbody>
       </table>

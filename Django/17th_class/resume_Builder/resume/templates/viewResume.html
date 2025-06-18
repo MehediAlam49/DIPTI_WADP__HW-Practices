@@ -1,56 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Resume Builder</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        body {
+{% extends "master.html" %} {% block body %}
+<style>
+  body {
     font-family: Arial, sans-serif;
     background-color: #eef2f7;
     margin: 0;
     padding: 0;
-}
+  }
+  img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
 
-.resume-container {
+  .resume-container {
     max-width: 800px;
     background-color: white;
     margin: 40px auto;
     padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
 
-.profile-section {
+  .profile-section {
     text-align: center;
     margin-bottom: 30px;
-}
+  }
 
-.profile-img {
+  .profile-img {
     width: 150px;
     height: 150px;
     border-radius: 50%;
     object-fit: cover;
     border: 3px solid #007bff;
     margin-bottom: 10px;
-}
+  }
 
-.section {
+  .section {
     margin-bottom: 20px;
-}
+  }
 
-.section h2 {
+  .section h2 {
     border-bottom: 2px solid #007bff;
     padding-bottom: 5px;
     color: #333;
-}
+  }
 
-.buttons {
+  .buttons {
     text-align: center;
     margin-top: 20px;
-}
+  }
 
-.buttons button {
+  .buttons button {
     background-color: #007bff;
     color: white;
     padding: 10px 20px;
@@ -59,58 +60,59 @@
     border-radius: 6px;
     cursor: pointer;
     font-size: 16px;
-}
+  }
 
-.buttons button:hover {
+  .buttons button:hover {
     background-color: #0056b3;
-}
+  }
+</style>
 
-    </style>
-</head>
-<body>
-    <div class="resume-container">
-        <div class="profile-section">
-            <img src="profile.jpg" alt="Profile Picture" class="profile-img">
-            <h1>John Doe</h1>
-            <p>Email: johndoe@example.com</p>
-            <p>Phone: +1234567890</p>
-            <p>Address: 123 Main St, City, Country</p>
-        </div>
+<div class="resume-container">
+  <div class="profile-section">
+    <img src="{{resume.profilePic.url}}" alt="Profile Picture">
+    <h1>{{resume.fullName}}</h1>
+    <p>{{resume.email}}</p>
+    <p>{{resume.phone}}</p>
+    <p>{{resume.address}}</p>
+  </div>
 
-        <div class="section">
-            <h2>Summary</h2>
-            <p>A passionate web developer with strong problem-solving skills and 3 years of experience in Python and Django development.</p>
-        </div>
+  <div class="section">
+    <h2>Summary</h2>
+    <p>
+        {{resume.summary}}
+    </p>
+  </div>
 
-        <div class="section">
-            <h2>Education</h2>
-            <p><strong>BSc in Computer Science</strong><br>Daffodil International University, 2021</p>
-        </div>
+  <div class="section">
+    <h2>Education</h2>
+    <p>
+      <strong>{{resume.degree}}</strong><br />{{resume.institute}}, {{resume.graduationYear}}
+    </p>
+  </div>
 
-        <div class="section">
-            <h2>Experience</h2>
-            <p><strong>Web Developer</strong><br>Creative Coders, 2022 - Present</p>
-        </div>
+  <div class="section">
+    <h2>Experience</h2>
+    <p><strong>{{resume.company}}</strong><br />{{resume.position}}, {{resume.experience}}</p>
+  </div>
 
-        <div class="section">
-            <h2>Skills</h2>
-            <p>Python, Django, HTML, CSS, JavaScript, Git</p>
-        </div>
+  <div class="section">
+    <h2>Skills</h2>
+    <p>{{resume.skills}}</p>
+  </div>
 
-        <div class="section">
-            <h2>Hobbies</h2>
-            <p>Traveling, Reading, Photography</p>
-        </div>
+  <div class="section">
+    <h2>Hobbies</h2>
+    <p>{{resume.hobbies}}</p>
+  </div>
 
-        <div class="section">
-            <h2>Achievements</h2>
-            <p>Best Project Award - DIPTI 2022</p>
-        </div>
+  <div class="section">
+    <h2>Achievements</h2>
+    <p>{{resume.achievements}}</p>
+  </div>
 
-        <div class="buttons">
-            <button>Edit</button>
-            <button>Delete</button>
-        </div>
-    </div>
-</body>
-</html>
+  <div class="buttons">
+    <a href="{% url "editResume" resume.id %}" class="btn btn-sm btn-primary">Edit</a>
+    <a href="{% url "deleteResume" resume.id %}" class="btn btn-sm btn-danger">Delete</a>
+  </div>
+</div>
+{% endblock body %}
