@@ -1,0 +1,60 @@
+{% extends "master.html" %}
+{% block body %}
+<style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2rem;
+    }
+
+    th, td {
+      padding: 1rem;
+      text-align: left;
+    }
+
+    thead {
+      background-color: #1f2937;
+      color: #fff;
+    }
+
+    tbody tr:nth-child(even) {
+      background-color: #f1f5f9;
+    }
+
+    tbody tr:hover {
+      background-color: #e2e8f0;
+    }
+  </style>
+
+ 
+
+  <div class="container">
+    <h1>Book List</h1>
+    <p>Here is a stylish list of all available books in the inventory.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Price</th>
+          <th>Stock</th>
+          <th>Publish Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for data in booksData %}
+        <tr>
+            <td>{{ data.title }}</td>
+            <td>{{ data.author }}</td>
+            <td>{{ data.price }}</td>
+            <td>{{ data.stock }}</td>
+            <td>{{ data.publish_date }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+{% endblock body %}
+

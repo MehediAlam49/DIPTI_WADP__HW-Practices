@@ -39,4 +39,5 @@ def deleteRecipe(request,id):
     return redirect('home')
 
 def viewRecipe(request,id):
-    return render(request, 'viewRecipe.html')
+    recipeData = recipeModel.objects.get(id=id)
+    return render(request, 'viewRecipe.html', {'recipe': recipeData})
