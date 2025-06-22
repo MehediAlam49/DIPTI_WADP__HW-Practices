@@ -39,7 +39,7 @@
         <tbody class="text-center">
           {% for resume in resume %}
           <tr>
-            <td><img src="{{resume.profilePic}}" alt="Profile Picture"></td>
+            <td><img src="{{resume.profilePic.url}}" alt="Profile Picture"></td>
             <td>{{resume.fullName}}</td>
             <td>{{resume.email}}</td>
             <td>{{resume.phone}}</td>
