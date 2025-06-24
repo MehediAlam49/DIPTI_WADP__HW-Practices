@@ -22,6 +22,7 @@ urlpatterns = [
     path('viewStudent/', viewStudent, name='viewStudent'),
     path('editStudent/', editStudent, name='editStudent'),
     path('deleteStudent/', deleteStudent, name='deleteStudent'),
+    path('studentList/', studentList, name='studentList'),
 
 
     # <-----------------Task CRUD----------------------->
@@ -29,4 +30,5 @@ urlpatterns = [
     path('viewTask/', viewTask, name='viewTask'),
     path('editTask/', editTask, name='editTask'),
     path('deleteTask/', deleteTask, name='deleteTask'),
+    path('taskList/', taskList, name='taskList'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

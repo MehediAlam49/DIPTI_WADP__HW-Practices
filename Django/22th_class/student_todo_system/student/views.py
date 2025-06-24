@@ -24,6 +24,8 @@ def viewStudent(request):
     return render(request, 'viewStudent.html')
 def deleteStudent(request):
     return render(request, 'deleteStudent.html')
+def studentList(request):
+    return render(request, 'studentList.html')
 
 
 # <-----------------Task CRUD----------------------->
@@ -35,3 +37,5 @@ def viewTask(request):
     return render(request, 'viewTask.html')
 def deleteTask(request):
     return render(request, 'deleteTask.html')
+def taskList(request):
+    return render(request, 'taskList.html')

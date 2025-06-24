@@ -1,1 +1,80 @@
-ECHO is on.
+{% extends 'master.html' %}
+
+{% block body %}
+
+  <style>
+    .body {
+      background: linear-gradient(120deg, #1e3c72, #2a5298);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    
+    .form-container {
+      background: #fff;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      max-width: 600px;
+      width: 100%;
+    }
+    
+    .form-title {
+      font-size: 26px;
+      font-weight: bold;
+      margin-bottom: 25px;
+      text-align: center;
+      color: #333;
+    }
+    
+    .form-control,
+    .form-label {
+      border-radius: 10px;
+    }
+    
+    .btn-submit {
+      background-color: #1e3c72;
+      color: #fff;
+      border-radius: 10px;
+      font-weight: 500;
+    }
+    
+    .btn-submit:hover {
+      background-color: #163061;
+    }
+  </style>
+
+  <div class="body">
+    <div class="form-container">
+        <h2 class="form-title">Add Student</h2>
+        <form method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="mb-3">
+            <label for="image" class="form-label">image</label>
+            <input type="file" class="form-control" id="image" name="image" accept="image/*" required />
+          </div>
+          <div class="mb-3">
+            <label for="name" class="form-label">Student name</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Enter news name" required />
+          </div>
+          <div class="mb-3">
+            <label for="roll_no" class="form-label">Student roll_no</label>
+            <input type="number" class="form-control" id="roll_no" name="roll_no" placeholder="Enter news roll_no" required />
+          </div>
+          <div class="mb-3">
+            <label for="department" class="form-label">department</label>
+            <input type="text" class="form-control" id="department" name="department" rows="6" placeholder="Write the news department here..." required>
+          </div>
+          <div class="mb-3">
+            <label for="created_at" class="form-label">Student created_at</label>
+            <input type="date" class="form-control" id="created_at" name="created_at" placeholder="Enter news created_at" required />
+          </div>
+          <div class="d-grid">
+            <button type="submit" class="btn btn-submit">Submit News</button>
+          </div>
+        </form>
+      </div>
+  </div>
+{% endblock %}
