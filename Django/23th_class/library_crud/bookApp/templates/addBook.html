@@ -19,51 +19,30 @@
 
   <div class="container py-5">
     <div class="form-container">
-      <h2 class="form-title">Add Student</h2>
+      <h2 class="form-title">Add Book</h2>
       <form action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        <div class="mb-3">
-          <label for="profile_image" class="form-label">Profile Image</label>
-          <input type="file" class="form-control" id="profile_image" name="profile_image" accept="image/*" required />
-        </div>
 
         <div class="row">
           <div class="mb-3 col-md-6">
-            <label for="name" class="form-label">Full Name</label>
-            <input type="text" class="form-control" id="name" name="name" required />
+            <label for="title" class="form-label">title</label>
+            <input type="text" class="form-control" id="title" name="title" required />
           </div>
           <div class="mb-3 col-md-6">
-            <label for="roll_number" class="form-label">Roll Number</label>
-            <input type="text" class="form-control" id="roll_number" name="roll_number" required />
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="mb-3 col-md-6">
-            <label for="email" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="email" name="email" required />
-          </div>
-          <div class="mb-3 col-md-6">
-            <label for="phone" class="form-label">Phone Number</label>
-            <input type="tel" class="form-control" id="phone" name="phone" required />
+            <label for="author" class="form-label">author</label>
+            <input type="text" class="form-control" id="author" name="author" required />
           </div>
         </div>
 
         <div class="mb-3">
-          <label for="address" class="form-label">Address</label>
-          <textarea class="form-control" id="address" name="address" rows="2" required></textarea>
+          <label for="description" class="form-label">description</label>
+          <textarea class="form-control" id="description" name="description" rows="2" required></textarea>
         </div>
 
         <div class="row">
           <div class="mb-3 col-md-6">
-            <label for="dob" class="form-label">Date of Birth</label>
-            <input type="date" class="form-control" id="dob" name="dob" required />
-          </div>
-          <div class="mb-3 col-md-6 d-flex align-items-center">
-            <div class="form-check form-switch mt-4">
-              <input class="form-check-input" type="checkbox" id="is_active" name="is_active" checked />
-              <label class="form-check-label" for="is_active">Active Student</label>
-            </div>
+            <label for="published_date" class="form-label">published_date</label>
+            <input type="date" class="form-control" id="published_date" name="published_date" required />
           </div>
         </div>
 
