@@ -52,6 +52,8 @@ def home(request):
     productData = productModel.objects.all()
     return render(request, 'home.html', {'products': productData})
 def addProduct(request):
+    if request.user.user_types != 'owner':
+        return HttpResponse('Only Owner can Delete a product. If you want to add, edit & delete, Please Login')
     if request.method == 'POST':
         product_image = request.FILES.get('product_image')
         product_name = request.POST.get('product_name')
@@ -66,14 +68,32 @@ def addProduct(request):
         )
         return redirect('home')
     return render(request, 'addProduct.html')
+    
 
 def viewProduct(request,id):
-    return render(request, 'viewProduct.html')
-
+    productData = productModel.objects.get(id=id)
+    return render(request, 'viewProduct.html', {'products': productData})
 
 def editProduct(request,id):
-    return render(request, 'editProduct.html')
+    if request.user.user_types != 'owner':
+        return HttpResponse('Only Owner can Delete a product. If you want to add, edit & delete, Please Login')
+    productData = productModel.objects.get(id=id)
+    if request.method == 'POST':
+        productData.product_name = request.POST.get('product_name')
+        productData.product_price = request.POST.get('product_price')
+        productData.product_description = request.POST.get('product_description')
+
+        picture = request.FILES.get('product_image')
+        if picture is not None:
+            productData.product_image = picture
+        productData.save()
+        return redirect('home')
+    return render(request, 'editProduct.html', {'products': productData})
+    
 def deleteProduct(request,id):
+    if request.user.user_types != 'owner':
+        return HttpResponse('Only Owner can Delete a product. If you want to add, edit & delete, Please Login')
+    productModel.objects.get(id=id).delete()
     return redirect('home')
 
 
