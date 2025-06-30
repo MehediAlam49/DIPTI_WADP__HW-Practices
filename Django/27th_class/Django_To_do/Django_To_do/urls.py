@@ -16,9 +16,9 @@ urlpatterns = [
     path('itemList/', itemList, name='itemList'),
 
     path('addItem/', addItem, name='addItem'),
-    path('editItem/', editItem, name='editItem'),
-    path('viewItem/', viewItem, name='viewItem'),
-    path('deleteItem/', deleteItem, name='deleteItem'),
+    path('editItem/<str:id>', editItem, name='editItem'),
+    path('viewItem/<str:id>', viewItem, name='viewItem'),
+    path('deleteItem/<str:id>', deleteItem, name='deleteItem'),
 
     path('passwordNotMatched/', passwordNotMatched, name='deleteItem'),
     path('passwordWrong/', passwordWrong, name='passwordWrong'),

@@ -10,6 +10,7 @@ class customUserModel(AbstractUser):
     address = models.CharField(max_length=100, null=True)
     city_name = models.CharField(max_length=100, null=True)
     bio = models.TextField(null=True)
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
 
 
 class itemModel(models.Model):
@@ -18,6 +19,7 @@ class itemModel(models.Model):
         ('in_progress','In_progress'),
         ('completed','Completed'),
     ]
+    user = models.ForeignKey(customUserModel, on_delete=models.CASCADE, null=True)
     title = models.CharField(max_length=100, null=True)
     description = models.TextField(null=True)
     status = models.CharField(choices=STATUS_CHOICES, max_length=100, null=True)

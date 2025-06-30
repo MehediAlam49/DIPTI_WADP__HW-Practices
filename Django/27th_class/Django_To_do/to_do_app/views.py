@@ -46,25 +46,53 @@ def loginPage(request):
             return redirect('passwordWrong')
     return render(request, 'loginPage.html')
 def logoutPage(request):
+    logout(request)
     return redirect('loginPage')
 
 
 
 def home(request):
-    return render(request, 'home.html')
+    total = itemModel.objects.filter(user = request.user )
+    in_progress_items = itemModel.objects.filter(user = request.user, status='in_progress' )
+    pending_items = itemModel.objects.filter(user = request.user, status='pending' )
+    completed_items = itemModel.objects.filter(user = request.user, status='completed' )
+    return render(request, 'home.html', {'total':total, 'in_progress_items':in_progress_items, 'pending_items': pending_items, 'completed_items': completed_items})
 def itemList(request):
-    return render(request, 'itemList.html')
+    itemData = itemModel.objects.filter(user = request.user )
+    return render(request, 'itemList.html', {'items': itemData})
 
 
 
 def addItem(request):
+    if request.method == 'POST':
+        title = request.POST.get('title')
+        description = request.POST.get('description')
+        status = request.POST.get('status')
+
+        itemModel.objects.create(
+            user = request.user,
+            title=title,
+            description=description,
+            status=status,
+        )
+        return redirect('itemList')
     return render(request, 'addItem.html')
-def editItem(request):
-    return render(request, 'editItem.html')
-def viewItem(request):
-    return render(request, 'viewItem.html')
-def deleteItem(request):
-    return render(request, 'deleteItem.html')
+def editItem(request,id):
+    itemData = itemModel.objects.get(id=id)
+    if request.method == 'POST':
+        itemData.title = request.POST.get('title')
+        itemData.description = request.POST.get('description')
+        itemData.status = request.POST.get('status')
+        itemData.save()
+        return redirect('itemList')
+
+    return render(request, 'editItem.html', {'items':itemData})
+def viewItem(request,id):
+    itemData = itemModel.objects.get(id=id)
+    return render(request, 'viewItem.html', {'items':itemData})
+def deleteItem(request,id):
+    itemModel.objects.get(id=id).delete()
+    return redirect('itemList')
 
 
 
