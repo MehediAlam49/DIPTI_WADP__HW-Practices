@@ -1,0 +1,23 @@
+{% extends 'master.html' %}
+
+{% block body %}
+  <h2 class="text-center mt-4"><strong>Welcome!</strong> @{{ request.user.username }} <br />Your Projects:</h2>
+  <div class="container py-4">
+    <div class="row g-4">
+        <!-- Project Card -->
+      {% for project in project %}
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm border-0">
+            <div class="card-body">
+              <h5 class="card-title fw-semibold text-primary">{{ project.project_name }}</h5>
+              <p class="card-text text-muted">{{ project.project_description }}</p>
+            </div>
+            <div class="card-footer bg-transparent border-0">
+              <span class="badge bg-success">{{ project.project_status }}</span>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}

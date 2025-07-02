@@ -1,0 +1,60 @@
+{% extends 'master.html' %}
+
+{% block body %}
+<div class="container py-5">
+    <div class="card shadow border-0">
+      <div class="card-header bg-dark text-white">
+        <h4 class="mb-0">Edit Project</h4>
+      </div>
+      <div class="card-body">
+        <form method="POST">
+            {% csrf_token %}
+          <!-- Project Name -->
+          <div class="mb-3">
+            <label for="projectName" class="form-label fw-semibold">Project Name</label>
+            <input type="text" class="form-control" id="projectName" value="{{project.project_name}}" name="project_name" placeholder="E.g., Portfolio Website" required>
+          </div>
+  
+          <!-- Project Description -->
+          <div class="mb-3">
+            <label for="description" class="form-label fw-semibold">Description</label>
+            <textarea class="form-control" id="description" name="project_description" rows="4" placeholder="Briefly describe the project..." required>{{project.project_description}}</textarea>
+          </div>
+  
+          <!-- Status Dropdown -->
+          <div class="mb-3">
+            <label for="status" class="form-label fw-semibold">Project Status</label>
+            <select class="form-select" id="status" name="project_status" required>
+              <option value="disabled" selected disabled>Select status</option>
+              <option value="NotStarted" 
+              {% if project.project_status == 'NotStarted' %}
+              selected
+              {% endif %}
+                >Not Started</option>
+              <option value="InProgress"
+              {% if project.project_status == 'InProgress' %}
+              selected
+              {% endif %}>In Progress</option>
+              <option value="Completed"
+              {% if project.project_status == 'Completed' %}
+              selected
+              {% endif %}>Completed</option>
+            </select>
+          </div>
+  
+          <!-- Deadline -->
+          <div class="mb-3">
+            <label for="deadline" class="form-label fw-semibold">Deadline</label>
+            <input type="date" class="form-control" id="deadline"value="{{project.deadline|date:'Y-m-d'}}" name="deadline">
+          </div>
+  
+          <!-- Submit Button -->
+          <div class="d-grid">
+            <button type="submit" class="btn btn-primary fw-semibold">Update Project</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock body %}
+    
