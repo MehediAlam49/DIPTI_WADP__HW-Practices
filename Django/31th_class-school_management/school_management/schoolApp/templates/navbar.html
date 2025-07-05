@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white navbar-custom">
     <div class="container">
-      <a class="navbar-brand fw-bold" href="{% url 'home' %}"><i class="bi bi-mortarboard-fill me-1"></i>StudentApp</a>
+      <a class="navbar-brand fw-bold" href="{% url 'home' %}"><i class="bi bi-mortarboard-fill me-1"></i>School Management</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -13,13 +13,12 @@
           <li class="nav-item">
             <a class="nav-link" href="{% url 'addStudent' %}"><i class="bi bi-person-plus me-1"></i>Add Student</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'studentList' %}"><i class="bi bi-person-plus me-1"></i>Students</a>
+          </li>
         </ul>
 
-        <!-- Search -->
-        <form class="d-flex search-bar" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search student..." aria-label="Search">
-          <button class="btn btn-outline-primary" type="submit"><i class="bi bi-search"></i></button>
-        </form>
+        
 
         <!-- Logout -->
         <ul class="navbar-nav ms-3">
