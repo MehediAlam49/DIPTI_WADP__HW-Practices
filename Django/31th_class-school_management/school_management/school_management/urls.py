@@ -10,9 +10,9 @@ urlpatterns = [
     path('logoutPage/', logoutPage,name='logoutPage'),
 
 
-    path('home/', home,name='home'),
+    path('home/', home, name='home'),
     path('studentList/', studentList,name='studentList'),
-    
+
     path('addStudent/', addStudent,name='addStudent'),
     path('viewStudent/', viewStudent,name='viewStudent'),
     path('editStudent/', editStudent,name='editStudent'),
