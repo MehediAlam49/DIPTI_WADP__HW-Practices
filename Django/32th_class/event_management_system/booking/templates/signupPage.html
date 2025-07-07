@@ -44,9 +44,23 @@
 
     <form action="" method="POST">
         {% csrf_token %}
+
+        <div class="mb-3">
+          <label for="formFile" class="form-label">Profile Image</label>
+          <input class="form-control" type="file" name="profile_image" id="formFile">
+        </div>
+
       <div class="mb-3">
         <label for="name" class="form-label">User name</label>
-        <input type="text" class="form-control" id="name" name="userName" required placeholder="Your name">
+        <input type="text" class="form-control" id="name" name="username" required placeholder="Your name">
+      </div>
+      <div class="mb-3">
+        <label for="full_name" class="form-label">Full name</label>
+        <input type="text" class="form-control" id="full_name" name="full_name" required placeholder="Your full_name">
+      </div>
+      <div class="mb-3">
+        <label for="phone_number" class="form-label">Phone Number</label>
+        <input type="number" class="form-control" id="phone_number" name="phone_number" required placeholder="Your phone_number">
       </div>
 
       <div class="mb-3">
