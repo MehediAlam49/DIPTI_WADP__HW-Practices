@@ -43,12 +43,28 @@ def logoutPage(request):
 def home(request):
     return render(request, 'home.html')
 def myBooks(request):
-    return render(request, 'myBooks.html')
+    return render(request, 'myBook.html')
 def profile(request):
     return render(request, 'profile.html')
 
 
 def addBook(request):
+    if request.method == 'POST':
+        event_title = request.POST.get('event_title')
+        event_description = request.POST.get('event_description')
+        event_date = request.POST.get('event_date')
+        event_type = request.POST.get('event_type')
+        status = request.POST.get('status')
+
+        EventBookingModel.objects.create(
+            created_by = request.user,
+            event_title=event_title,
+            event_description=event_description,
+            event_date=event_date,
+            event_type=event_type,
+            status=status,
+        )
+        return redirect('myBooks')
     return render(request, 'addBook.html')
 def editBook(request):
     return render(request, 'editBook.html')
