@@ -13,13 +13,13 @@ urlpatterns = [
     path('logoutPage/', logoutPage, name='logoutPage'),
 
     path('home/', home, name='home'),
-    path('myBooks/', myBooks, name='myBooks'),
+    path('myBooking/', myBooking, name='myBooking'),
     path('profile/', profile, name='profile'),
 
-    path('addBook/', addBook, name='addBook'),
-    path('editBook/', editBook, name='editBook'),
-    path('viewBook/', viewBook, name='viewBook'),
-    path('deleteBook/', deleteBook, name='deleteBook'),
+    path('addBooking/', addBooking, name='addBooking'),
+    path('editBooking/', editBooking, name='editBooking'),
+    path('viewBooking/', viewBooking, name='viewBooking'),
+    path('deleteBooking/', deleteBooking, name='deleteBooking'),
 
     path('changePassword/', changePassword, name='changePassword'),
     path('changeStatus/', changeStatus, name='changeStatus'),

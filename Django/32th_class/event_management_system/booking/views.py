@@ -42,13 +42,13 @@ def logoutPage(request):
 
 def home(request):
     return render(request, 'home.html')
-def myBooks(request):
-    return render(request, 'myBook.html')
+def myBooking(request):
+    return render(request, 'myBooking.html')
 def profile(request):
     return render(request, 'profile.html')
 
 
-def addBook(request):
+def addBooking(request):
     if request.method == 'POST':
         event_title = request.POST.get('event_title')
         event_description = request.POST.get('event_description')
@@ -65,13 +65,13 @@ def addBook(request):
             status=status,
         )
         return redirect('myBooks')
-    return render(request, 'addBook.html')
-def editBook(request):
-    return render(request, 'editBook.html')
-def viewBook(request):
-    return render(request, 'viewBook.html')
-def deleteBook(request):
-    return redirect('myBooks')
+    return render(request, 'addBooking.html')
+def editBooking(request):
+    return render(request, 'editBooking.html')
+def viewBooking(request):
+    return render(request, 'viewBooking.html')
+def deleteBooking(request):
+    return redirect('myBooking')
 
 
 def changePassword(request):
