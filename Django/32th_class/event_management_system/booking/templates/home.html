@@ -1,14 +1,14 @@
 {% extends 'master.html' %}
 
 {% block body %}
-<style>
+  <style>
     .profile-card {
       max-width: 700px;
       margin: auto;
       padding: 25px;
       background: #f8f9fa;
       border-radius: 20px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.08);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
     }
     .profile-img {
       width: 120px;
@@ -16,7 +16,7 @@
       object-fit: cover;
       border-radius: 50%;
       border: 4px solid #fff;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
     .profile-header {
       text-align: center;
@@ -31,27 +31,31 @@
     }
   </style>
   <div class="container py-5">
-    <div class="profile-card">
-      <div class="profile-header">
-        <img src="{{request.user.profile_image.url}}" alt="Profile Image" class="profile-img mb-3">
-        <h4 class="fw-bold mb-0">{{request.user.full_name}}</h4>
-        
-      </div>
-
-      <div class="row g-3 mb-3">
-        <div class="col-md-6">
-          <div class="info-label">Email</div>
-          <div class="info-value">{{request.user.email}}</div>
+    <div class="row">
+      {% for booking in bookings %}
+      <div class="col-md-4 mb-4">
+        <div class="card shadow-sm h-100">
+          <div class="card-body">
+            <h4 class="fw-bold mb-3">{{ booking.event_title }}</h4>
+  
+            <div class="mb-2">
+              <strong>Date:</strong> {{ booking.event_date }}
+            </div>
+            <div class="mb-2">
+              <strong>Type:</strong> {{ booking.event_type }}
+            </div>
+            <div class="mb-2">
+              <strong>Status:</strong> {{ booking.status }}
+            </div>
+            <div class="mb-2">
+              <strong>Description:</strong> {{ booking.event_description }}
+            </div>
+  
+          </div>
         </div>
-        <div class="col-md-6">
-          <div class="info-label">Phone</div>
-          <div class="info-value">{{request.user.phone_number}}</div>
-        </div>
-        
       </div>
-
+      {% endfor %}
     </div>
   </div>
-    
-{% endblock body %}
-    
+  
+{% endblock %}

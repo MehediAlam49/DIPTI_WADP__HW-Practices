@@ -17,10 +17,10 @@ urlpatterns = [
     path('profile/', profile, name='profile'),
 
     path('addBooking/', addBooking, name='addBooking'),
-    path('editBooking/', editBooking, name='editBooking'),
-    path('viewBooking/', viewBooking, name='viewBooking'),
-    path('deleteBooking/', deleteBooking, name='deleteBooking'),
+    path('editBooking/<str:id>', editBooking, name='editBooking'),
+    path('viewBooking/<str:id>', viewBooking, name='viewBooking'),
+    path('deleteBooking/<str:id>', deleteBooking, name='deleteBooking'),
 
     path('changePassword/', changePassword, name='changePassword'),
-    path('changeStatus/', changeStatus, name='changeStatus'),
+    path('changeStatus/<str:id>', changeStatus, name='changeStatus'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

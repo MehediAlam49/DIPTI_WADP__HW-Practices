@@ -41,9 +41,11 @@ def logoutPage(request):
 
 
 def home(request):
-    return render(request, 'home.html')
+    bookingData = EventBookingModel.objects.filter(created_by = request.user)
+    return render(request, 'home.html', {'bookings':bookingData})
 def myBooking(request):
-    return render(request, 'myBooking.html')
+    bookingData = EventBookingModel.objects.filter(created_by = request.user)
+    return render(request, 'myBooking.html', {'bookings':bookingData})
 def profile(request):
     return render(request, 'profile.html')
 
@@ -64,17 +66,19 @@ def addBooking(request):
             event_type=event_type,
             status=status,
         )
-        return redirect('myBooks')
+        return redirect('myBooking')
     return render(request, 'addBooking.html')
-def editBooking(request):
+
+
+def editBooking(request,id):
     return render(request, 'editBooking.html')
-def viewBooking(request):
+def viewBooking(request,id):
     return render(request, 'viewBooking.html')
-def deleteBooking(request):
+def deleteBooking(request,id):
     return redirect('myBooking')
 
 
 def changePassword(request):
     return render(request, 'changePassword.html')
-def changeStatus(request):
+def changeStatus(request,id):
     return render(request, 'changeStatus.html')
