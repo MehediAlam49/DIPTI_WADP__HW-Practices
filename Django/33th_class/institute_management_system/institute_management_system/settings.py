@@ -37,8 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'userAuth'
-    'courses'
+    'userAuth',
+    'courses',
 ]
 
 MIDDLEWARE = [
@@ -123,5 +123,5 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-AUTH_USER_MODEL = 'userApp.CustomUserModel'
-LOGIN_URL = 'userAuth/master/loginPage'
+AUTH_USER_MODEL = 'userAuth.CustomUserModel'
+# LOGIN_URL = 'userAuth/master/loginPage'
