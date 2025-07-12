@@ -22,3 +22,15 @@ class StudentModel(models.Model):
     student_profile = models.ImageField(upload_to='media/students_profile', null=True)
     def __str__(self):
         return self.student_name
+    
+
+
+class PendingStudentModel(models.Model):
+    username = models.CharField(max_length=100, null=True)
+    email = models.EmailField( null=True)
+    student_name = models.CharField(max_length=100, null=True)
+    student_phone = models.CharField(max_length=15, null=True)
+    student_profile = models.ImageField(upload_to='media/students_profile', null=True)
+    
+    def __str__(self):
+        return self.student_name
