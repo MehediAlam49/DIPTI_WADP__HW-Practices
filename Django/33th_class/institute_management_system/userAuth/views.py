@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from userAuth.models import CustomUserModel
+from userAuth.models import *
 from django.contrib import messages
 
 from django.contrib.auth import authenticate,login,logout
@@ -42,9 +42,25 @@ def loginPage(request):
     return render(request, 'master/loginPage.html')
 
 def logoutPage(request):
-
     logout(request)
     return redirect('loginPage')
 
 def home(request):
     return render(request, 'home.html')
+def profile(request):
+    return render(request, 'profile.html')
+def teachers(request):
+    return render(request, 'teachers.html')
+def addTeacher(request):
+    if request.method == 'POST':
+        teacher_profile = request.FILES.get('teacher_profile')
+        teacher_name = request.POST.get('teacher_name')
+        teacher_phone = request.POST.get('teacher_phone')
+
+        TeacherModel.objects.create(
+            teacher_profile=teacher_profile,
+            teacher_name=teacher_name,
+            teacher_phone=teacher_phone,
+        )
+        return redirect('teachers')
+    return render(request, 'addTeacher.html')

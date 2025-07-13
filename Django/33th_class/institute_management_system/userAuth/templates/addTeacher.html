@@ -1,4 +1,4 @@
-{% extends 'master.html' %}
+{% extends 'master/master.html' %}
 
 {% block body %}
   <style>
@@ -19,53 +19,25 @@
 
   <div class="container py-5">
     <div class="form-container">
-      <h2 class="form-title">Add Student</h2>
+      <h2 class="form-title">Add Teacher</h2>
       <form action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="mb-3">
-          <label for="profile_image" class="form-label">Profile Image</label>
-          <input type="file" class="form-control" id="profile_image" name="profile_image" accept="image/*" required />
+          <label for="teacher_profile" class="form-label">Teacher Profile</label>
+          <input type="file" class="form-control" id="teacher_profile" name="teacher_profile" accept="image/*" required />
         </div>
 
-        <div class="row">
-          <div class="mb-3 col-md-6">
-            <label for="name" class="form-label">Full Name</label>
-            <input type="text" class="form-control" id="name" name="name" required />
+          <div class="mb-3">
+            <label for="teacher_name" class="form-label">Teacher Name</label>
+            <input type="text" class="form-control" id="teacher_name" name="teacher_name" required />
           </div>
-          <div class="mb-3 col-md-6">
-            <label for="roll_number" class="form-label">Roll Number</label>
-            <input type="text" class="form-control" id="roll_number" name="roll_number" required />
-          </div>
-        </div>
 
-        <div class="row">
-          <div class="mb-3 col-md-6">
-            <label for="email" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="email" name="email" required />
+          <div class="mb-3">
+            <label for="teacher_phone" class="form-label">Teacher Phone</label>
+            <input type="tel" class="form-control" id="teacher_phone" name="teacher_phone" required />
           </div>
-          <div class="mb-3 col-md-6">
-            <label for="phone" class="form-label">Phone Number</label>
-            <input type="tel" class="form-control" id="phone" name="phone" required />
-          </div>
-        </div>
 
-        <div class="mb-3">
-          <label for="address" class="form-label">Address</label>
-          <textarea class="form-control" id="address" name="address" rows="2" required></textarea>
-        </div>
 
-        <div class="row">
-          <div class="mb-3 col-md-6">
-            <label for="dob" class="form-label">Date of Birth</label>
-            <input type="date" class="form-control" id="dob" name="dob" required />
-          </div>
-          <div class="mb-3 col-md-6 d-flex align-items-center">
-            <div class="form-check form-switch mt-4">
-              <input class="form-check-input" type="checkbox" id="is_active" name="is_active" checked />
-              <label class="form-check-label" for="is_active">Active Student</label>
-            </div>
-          </div>
-        </div>
 
         <div class="d-grid">
           <button type="submit" class="btn btn-primary btn-lg">Submit</button>
