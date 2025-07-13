@@ -4,4 +4,5 @@ from courses.views import *
 urlpatterns = [
     # ----------Authenticate urls---------------
     path('addCourse', addCourse, name='addCourse'),
+    path('courses', courses, name='courses'),
 ]

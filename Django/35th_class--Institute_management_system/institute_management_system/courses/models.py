@@ -9,6 +9,8 @@ class CourseModel(models.Model):
     course_start_date = models.DateField(null=True)
     course_fee = models.PositiveIntegerField(null=True)
     assign_teacher = models.ForeignKey(TeacherModel, on_delete=models.CASCADE,  null=True, related_name='courseTeacher_info')
+    def __str__(self):
+        return self.course_title
 
 
 class AdmittedCourseModel(models.Model):

@@ -24,28 +24,38 @@
         {% csrf_token %}
 
         <div class="mb-3">
-          <label for="username" class="form-label">Username</label>
-          <input type="text" class="form-control" id="username" name="username" required />
+          <label for="course_title" class="form-label">Course Title</label>
+          <input type="text" class="form-control" id="course_title" name="course_title" required />
         </div>
 
         <div class="mb-3">
-          <label for="student_name" class="form-label">Student Name</label>
-          <input type="text" class="form-control" id="student_name" name="student_name" required />
+          <label for="course_description" class="form-label">Course Description</label>
+          <textarea class="form-control" placeholder="Enter course description" id="floatingTextarea" name="course_description"></textarea>
         </div>
 
         <div class="mb-3">
-          <label for="student_phone" class="form-label">Student Phone</label>
-          <input type="tel" class="form-control" id="student_phone" name="student_phone" required />
+          <label for="course_duration" class="form-label">course duration</label>
+          <input type="text" class="form-control" id="course_duration" name="course_duration" required />
         </div>
 
         <div class="mb-3">
-          <label for="email" class="form-label">Email</label>
-          <input type="tel" class="form-control" id="email" name="email" required />
+          <label for="course_start_date" class="form-label">course start date</label>
+          <input type="date" class="form-control" id="course_start_date" name="course_start_date" required />
         </div>
 
         <div class="mb-3">
-          <label for="student_profile" class="form-label">Student Profile</label>
-          <input type="file" class="form-control" id="student_profile" name="student_profile" accept="image/*" required />
+          <label for="course_fee" class="form-label">course fee</label>
+          <input type="text" class="form-control" id="course_fee" name="course_fee" required />
+        </div>
+
+        <div class="mb-3">
+          <label for="assign_teacher" class="form-label">Assign Teacher</label>
+          <select class="form-select" name="assign_teacher" aria-label="Default select example">
+            {% for teacher in teacherData %}
+              <option value="{{teacher.id}}">{{teacher.id}}--{{teacher.teacher_name}}</option>
+            {% endfor %}
+              
+          </select>
         </div>
 
         <div class="d-grid">
