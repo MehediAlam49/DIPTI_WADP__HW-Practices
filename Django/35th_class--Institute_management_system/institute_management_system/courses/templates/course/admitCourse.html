@@ -1,0 +1,56 @@
+{% extends 'master/master.html' %}
+
+{% block body %}
+  <style>
+    .form-container {
+      max-width: 700px;
+      margin: auto;
+      padding: 30px;
+      background: #f8f9fa;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+    .form-title {
+      margin-bottom: 30px;
+      font-weight: 600;
+      text-align: center;
+    }
+  </style>
+
+  <div class="container py-5">
+    <div class="form-container">
+      <h2 class="form-title">Admit a Course</h2>
+      <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="mb-3">
+          <label for="student" class="form-label">Admit Student</label>
+          <select class="form-select" name="student" aria-label="Default select example">
+            {% for student in student %}
+              <option value="{{student.id}}">{{student.student_name}}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="admitted_course" class="form-label">Admit Course</label>
+          <select class="form-select" name="admitted_course" aria-label="Default select example">
+            {% for course in course %}
+              <option value="{{course.id}}">{{course.course_title}}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="payment" class="form-label">Payment</label>
+          <input type="number" class="form-control" id="payment" name="payment" required />
+        </div>
+
+        
+        <div class="d-grid">
+          <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+{% endblock %}

@@ -31,3 +31,72 @@ def addCourse(request):
 def courses(request):
     courseData = CourseModel.objects.all()
     return render(request, 'course/courses.html', {'courseInfo': courseData})
+
+def admitCourse(request):
+    studentData = StudentModel.objects.all()
+    courseData = CourseModel.objects.all()
+
+    context = {
+        'student':studentData,
+        'course':courseData,
+    }
+
+    if request.method == 'POST':
+        student = request.POST.get('student')
+        admitted_course = request.POST.get('admitted_course')
+        payment = request.POST.get('payment')
+
+        studentData = StudentModel.objects.get(id=student)
+        courseData = CourseModel.objects.get(id=admitted_course)
+        course_fee = courseData.course_fee
+        due = int(course_fee) - int(payment)
+
+        admitted_course_data=AdmittedCourseModel.objects.create(
+            student = studentData,
+            admitted_course=courseData,
+            payment=payment,
+            course_fee=course_fee,
+            due=due,
+
+        )
+
+        PaymentHistoryModel.objects.create(
+            admitted_course=admitted_course_data,
+            payment=payment,
+        )
+        return redirect('admittedCourseList')
+        
+    return render(request, 'course/admitCourse.html', context)
+
+def admittedCourseList(request):
+    admittedCourseData = AdmittedCourseModel.objects.all()
+    return render(request, 'course/admittedCourseList.html',{'admittedCourseData':admittedCourseData})
+
+def makePayment(request):
+    admit_course_list = AdmittedCourseModel.objects.all()
+    if request.method == 'POST':
+        admitted_course = request.POST.get('admitted_course')
+        payment = request.POST.get('payment')
+
+        admittedCourseData = AdmittedCourseModel.objects.get(id=admitted_course)
+
+        old_payment = admittedCourseData.payment
+        new_payment = int(old_payment) + int(payment)
+        admittedCourseData.payment=new_payment
+
+        due = admittedCourseData.course_fee - admittedCourseData.payment
+        admittedCourseData.due = due
+
+        admittedCourseData.save()
+
+        PaymentHistoryModel.objects.create(
+            admitted_course = admittedCourseData,
+            payment=payment,
+        )
+        return redirect('admittedCourseList')
+    return render(request, 'payment/makePayment.html', {'admit_course_list':admit_course_list})
+
+def paymentList(request):
+    paymentData = PaymentHistoryModel.objects.all()
+    return render(request, 'payment/paymentList.html', {'paymentData':paymentData})
+

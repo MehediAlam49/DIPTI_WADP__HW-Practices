@@ -81,11 +81,29 @@
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
 
               <li>
-                <a class="dropdown-item" href="{% url 'addCourse' %}"><i class="bi bi-person-circle me-1"></i>Admit a new Course</a>
+                <a class="dropdown-item" href="{% url 'admitCourse' %}"><i class="bi bi-person-circle me-1"></i>Admit a new Course</a>
               </li>
               
               <li>
-                <a class="dropdown-item" href="{% url 'courses' %}"><i class="bi bi-person me-1"></i></i>Course List</a>
+                <a class="dropdown-item" href="{% url 'admittedCourseList' %}"><i class="bi bi-person me-1"></i></i>Admitted Course List</a>
+              </li>
+              
+            </ul>
+          </li>
+        </ul>
+
+        <!-- Make Payment -->
+        <ul class="navbar-nav ms-3">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><span class="fw-semibold d-none d-md-inline"><i class="bi bi-person me-1"></i>Payment</span></a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+
+              <li>
+                <a class="dropdown-item" href="{% url 'makePayment' %}"><i class="bi bi-person-circle me-1"></i>Make a payment</a>
+              </li>
+              
+              <li>
+                <a class="dropdown-item" href="{% url 'paymentList' %}"><i class="bi bi-person me-1"></i></i>Payment List</a>
               </li>
               
             </ul>
