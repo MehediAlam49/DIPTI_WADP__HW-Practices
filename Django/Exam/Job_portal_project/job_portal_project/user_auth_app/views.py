@@ -46,3 +46,19 @@ def logoutPage(request):
 
 def home(request):
     return render(request, 'home.html')
+
+def pendingAccountList(request):
+    pendingAccountData = PendingAccountModel.objects.all()
+    return render(request, 'pendingAccountList.html', {'pendingAccount':pendingAccountData})
+
+def acceptPendingAccount(request):
+    pendingAccount = PendingAccountModel.objects.all()
+
+    if pendingAccount:
+        CustomUserModel.objects.create_user(
+            username=pendingAccount.username,
+            email=pendingAccount.email,
+            password=pendingAccount.phone,
+        )
+    pendingAccount.delete()
+    return redirect('pendingAccountList')

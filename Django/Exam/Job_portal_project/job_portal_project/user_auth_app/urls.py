@@ -6,5 +6,7 @@ urlpatterns = [
     path('loginPage/', loginPage, name='loginPage'),
     path('logoutPage/', logoutPage, name='logoutPage'),
     path('home/', home, name='home'),
+    path('pendingAccountList/', pendingAccountList, name='pendingAccountList'),
+    path('acceptPendingAccount/<str:id>', acceptPendingAccount, name='acceptPendingAccount'),
     
 ]
