@@ -1,4 +1,4 @@
-{% extends 'master.html' %}
+{% extends 'base/master.html' %}
 
 {% block body %}
 <style>
@@ -33,8 +33,8 @@
   <div class="container py-5">
     <div class="profile-card">
       <div class="profile-header">
-        <img src="{{request.user.profile_image.url}}" alt="Profile Image" class="profile-img mb-3">
-        <h4 class="fw-bold mb-0">{{request.user.full_name}}</h4>
+        {% comment %} <img src="{{request.user.profile_image.url}}" alt="Profile Image" class="profile-img mb-3"> {% endcomment %}
+        <h4 class="fw-bold mb-0">{{request.user.username}}</h4>
         
       </div>
 
@@ -45,7 +45,7 @@
         </div>
         <div class="col-md-6">
           <div class="info-label">Phone</div>
-          <div class="info-value">{{request.user.phone_number}}</div>
+          <div class="info-value">{{request.user.phone}}</div>
         </div>
         
       </div>
