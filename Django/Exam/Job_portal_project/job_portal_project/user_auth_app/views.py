@@ -84,6 +84,12 @@ def acceptPendingAccount(request, id):
         accountData.delete()
     return redirect('pendingAccountList')
 
+def rejectPendingAccount(request,id):
+    accountData = PendingAccountModel.objects.get(id=id)
+    accountData.status = 'Rejected'
+    accountData.save()
+    return redirect(pendingAccountList)
+
 
 def changePassword(request):
     current_user = request.user

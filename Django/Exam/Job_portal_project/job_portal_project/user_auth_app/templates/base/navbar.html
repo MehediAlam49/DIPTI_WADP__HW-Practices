@@ -9,31 +9,26 @@
           <a class="nav-link active" href="{% url 'home' %}"><i class="bi bi-house-door me-1"></i>Dashboard</a>
         </li>
 
-        
         {% if request.user.user_type == 'Admin' %}
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'pendingAccountList' %}"><i class="bi bi-person-plus me-1"></i>Pending Accounts</a>
-        </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'pendingAccountList' %}"><i class="bi bi-person-plus me-1"></i>Pending Accounts</a>
+          </li>
         {% endif %}
-          
+
         <li class="nav-item">
-          {% comment %} <a class="nav-link" href="{% url 'jobList' %}"><i class="bi bi-person me-1"></i>Job List</a> {% endcomment %}
+          <a class="nav-link" href="{% url 'jobList' %}"><i class="bi bi-person me-1"></i>Job List</a>
         </li>
+
         <li class="nav-item">
           {% comment %} <a class="nav-link" href="{% url 'appliedJob' %}"><i class="bi bi-person me-1"></i>Applied Job</a> {% endcomment %}
         </li>
       </ul>
 
-      
-
       <!-- Logout -->
       <ul class="navbar-nav ms-3">
         <!-- Profile -->
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            
-            <span class="fw-semibold d-none d-md-inline">My Account</span>
-          </a>
+          <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"><span class="fw-semibold d-none d-md-inline">My Account</span></a>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
             <li>
               <a class="dropdown-item" href="{% url 'profile' %}"><i class="bi bi-person-circle me-1"></i> View Profile</a>
