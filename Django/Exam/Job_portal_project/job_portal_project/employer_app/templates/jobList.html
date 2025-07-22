@@ -1,0 +1,61 @@
+{% extends 'base/master.html' %}
+
+{% block body %}
+<div class="container py-5">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="mb-0">Job List</h2>
+    <a href="{% url 'addJob' %}" class="btn btn-success">
+      <i class="bi bi-plus-circle"></i> Add New Job
+    </a>
+  </div>
+
+  <div class="table-responsive shadow-sm">
+    <table class="table table-hover align-middle border rounded">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Title</th>
+          <th scope="col">Description</th>
+          <th scope="col">Requirements</th>
+          <th scope="col">Salary</th>
+          <th scope="col">Job Type</th>
+          <th scope="col">Deadline</th>
+          <th scope="col">Posted Date</th>
+          <th scope="col" class="text-center">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for job in jobData %}
+        <tr>
+          <th scope="row">{{ forloop.counter }}</th>
+          <td class="fw-semibold text-primary">{{ job.title }}</td>
+          <td>{{ job.description|truncatewords:10 }}</td>
+          <td>{{ job.requirements|truncatewords:8 }}</td>
+          <td>{{ job.salary }}</td>
+          <td>
+            <span class="badge bg-info text-dark">{{ job.job_type }}</span>
+          </td>
+          <td>{{ job.deadline }}</td>
+          <td>{{ job.posted_date }}</td>
+          <td class="text-center">
+            <a href="{% url 'viewJob' job.id %}" class="btn btn-sm btn-success me-1">
+              <i class="bi bi-eye"></i>
+            </a>
+            <a href="{% url 'editJob' job.id %}" class="btn btn-sm btn-warning me-1">
+              <i class="bi bi-pencil-square"></i>
+            </a>
+            <a href="{% url 'deleteJob' job.id %}" class="btn btn-sm btn-danger">
+              <i class="bi bi-trash"></i>
+            </a>
+          </td>
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="9" class="text-center text-muted py-4">No jobs found.</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

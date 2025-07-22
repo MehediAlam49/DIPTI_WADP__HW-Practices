@@ -1,0 +1,45 @@
+{% extends 'base/master.html' %}
+
+{% block body %}
+  <style>
+    .body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Segoe UI', sans-serif;
+      margin-top: 20px;
+    }
+    .login-card {
+      background: #ffffff;
+      padding: 40px 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+      max-width: 700px;
+      width: 100%;
+    }
+    .login-card .form-control {
+      border-radius: 10px;
+    }
+    .login-card .btn {
+      border-radius: 10px;
+    }
+    .login-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+  </style>
+  <div class="body">
+    <div class="login-card">
+      <div class="login-header">
+        <h3>Edit Job</h3>
+      </div>
+      <form action="" method="POST">
+        {% csrf_token %}
+        <div class="mb-3">{{ formData }}</div>
+        <div class="d-grid">
+          <button type="submit" class="btn btn-primary btn-lg"><i class="bi bi-box-arrow-in-right me-1"></i>Update Job</button>
+        </div>
+      </form>
+    </div>
+  </div>
+{% endblock %}

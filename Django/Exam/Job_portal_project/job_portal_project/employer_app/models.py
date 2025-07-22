@@ -23,4 +23,4 @@ class JobModel(models.Model):
     deadline = models.DateField(null=True)
     posted_date = models.DateTimeField(auto_now_add=True,null=True)
     def __str__(self):
-        return self.employer
+        return self.title

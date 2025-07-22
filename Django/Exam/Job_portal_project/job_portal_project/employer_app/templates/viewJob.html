@@ -1,0 +1,26 @@
+{% extends 'base/master.html' %}
+
+{% block body %}
+<div class="container py-5">
+  <h2 class="text-center mb-4">Job Details</h2>
+
+  <div class="card shadow-lg">
+    <div class="card-body">
+      <h4 class="card-title">{{ jobData.title }}</h4>
+      <h6 class="card-subtitle text-muted mb-3">{{ jobData.job_type }}</h6>
+
+      <p class="card-text"><strong>Description:</strong><br> {{ jobData.description }}</p>
+      <p class="card-text"><strong>Requirements:</strong><br> {{ jobData.requirements }}</p>
+      <p class="card-text"><strong>Salary:</strong> {{ jobData.salary }}</p>
+      <p class="card-text"><strong>Application Deadline:</strong> {{ jobData.deadline }}</p>
+      <p class="card-text"><strong>Posted On:</strong> {{ jobData.posted_date }}</p>
+    </div>
+
+    <div class="card-footer text-end">
+      <a href="{% url 'jobList' %}" class="btn btn-secondary">Back to Job List</a>
+      <a href="{% url 'editJob' jobData.id %}" class="btn btn-warning">Edit</a>
+      <a href="{% url 'deleteJob' jobData.id %}" class="btn btn-danger">Delete</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -49,7 +49,8 @@ def logoutPage(request):
     return redirect('loginPage')
 
 def home(request):
-    return render(request, 'home.html')
+    jobData = JobModel.objects.all()
+    return render(request, 'home.html',{'jobData':jobData})
 def profile(request):
     return render(request, 'profile.html')
 
