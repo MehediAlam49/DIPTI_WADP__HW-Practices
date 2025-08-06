@@ -62,8 +62,9 @@ ROOT_URLCONF = 'IMS.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'IMS' / 'templates'],  # 👈 Adjust as needed
         'APP_DIRS': True,
+        
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.request',
@@ -130,3 +131,4 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'users.User'
+LOGIN_URL = 'login'

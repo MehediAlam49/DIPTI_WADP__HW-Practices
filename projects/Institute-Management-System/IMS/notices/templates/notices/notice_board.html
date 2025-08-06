@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+  <h3 class="mb-3">Latest Notices</h3>
+  {% for notice in notices %}
+  <div class="alert alert-info shadow-sm">
+    <strong>{{ notice.title }}</strong> <small class="text-muted">({{ notice.date_posted }})</small>
+    <p>{{ notice.content }}</p>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
