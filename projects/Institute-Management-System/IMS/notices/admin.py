@@ -1,0 +1,4 @@
+from django.contrib import admin
+from notices.models import *
+# Register your models here.
+admin.site.register(Notice)
