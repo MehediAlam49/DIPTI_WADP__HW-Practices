@@ -33,7 +33,7 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     messages.info(request, "You’ve been logged out.")
-    return redirect('login')
+    return redirect('loginPage')
 
 def register_view(request):
     if request.method == 'POST':
@@ -53,6 +53,6 @@ def register_view(request):
         user = User.objects.create_user(username=username, email=email, password=password1)
         login(request, user)
         messages.success(request, "Registration successful!")
-        return redirect('login')
+        return redirect('loginPage')
 
     return render(request, 'users/register.html')
