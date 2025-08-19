@@ -35,3 +35,37 @@ def book_update(request,pk):
 def book_delete(request,pk):
     get_object_or_404(BookModel,pk=pk).delete()
     return redirect('book_list')
+
+
+def student_create(request):
+    if request.method == 'POST':
+        form = StudentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('book_list')
+    else:
+        form = StudentForm()
+    return render(request, 'student_create.html',{'form':form})
+
+def student_list(request):
+    books = StudentModel.objects.all()
+    return render(request, 'student_list.html',{'students':students})
+
+def student_detail(request,pk):
+    student = get_object_or_404(StudentModel,pk=pk)
+    return render(request, 'student_detail.html',{'student':student})
+
+def student_update(request,pk):
+    student = get_object_or_404(BookModel,pk=pk)
+    if request.method == 'POST':
+        form = StudentForm(request.POST, instance=student)
+        if form.is_valid():
+            form.save()
+            return redirect('book_list')
+    else:
+        form = StudentForm(instance=student)
+    return render(request, 'student_update.html',{'form':form})
+
+def student_delete(request,pk):
+    get_object_or_404(StudentModel,pk=pk).delete()
+    return redirect('student_list')
