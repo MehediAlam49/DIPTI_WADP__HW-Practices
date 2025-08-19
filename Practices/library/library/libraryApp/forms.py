@@ -5,3 +5,9 @@ class BookForm(forms.ModelForm):
     class Meta:
         model = BookModel
         fields = '__all__'
+
+        
+class StudentForm(forms.ModelForm):
+    class Meta:
+        model = StudentModel
+        fields = '__all__'
