@@ -1,0 +1,23 @@
+{% extends 'master.html' %}
+
+{% block content %}
+    <h3>Create a company</h3>
+<a href="{% url 'company_list' %}">Go to company list</a>
+<br><br>
+
+<div>
+  <form action="" method="POST">
+    {% csrf_token %}
+    {{form}}
+  
+    <input type="submit" value="Submit">
+  </form>
+</div>
+{% endblock content %}
+    
+
+
+
+
+
+
