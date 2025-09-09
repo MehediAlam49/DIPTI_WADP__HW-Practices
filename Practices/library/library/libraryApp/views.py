@@ -36,7 +36,7 @@ def book_delete(request,pk):
     get_object_or_404(BookModel,pk=pk).delete()
     return redirect('book_list')
 
-
+#Student section
 def student_create(request):
     if request.method == 'POST':
         form = StudentForm(request.POST)
