@@ -6,16 +6,16 @@
 
 ## Context Menu
 
-| Project area | Open |
-| --- | --- |
-| Description and features | [Key Features](#key-features) |
-| Technology and setup | [Tech Stack](#tech-stack) · [Getting Started](#getting-started) |
-| Runtime configuration | [Environment Variables](#environment-variables) |
-| Request flow | [Animated Data Flow Diagram](#animated-data-flow-diagram) · [Context Data](#context-data) |
-| Browser pages and commands | [Navigation](#navigation) · [Usage](#usage) |
-| Project files | [Project Structure](#project-structure) |
-| Future directions | [Possible Alternatives](#possible-alternatives) |
-| Ownership and license | [License](#license) · [Contact](#contact) |
+| Project area               | Open                                                                                      |
+| -------------------------- | ----------------------------------------------------------------------------------------- |
+| Description and features   | [Key Features](#key-features)                                                             |
+| Technology and setup       | [Tech Stack](#tech-stack) · [Getting Started](#getting-started)                           |
+| Runtime configuration      | [Environment Variables](#environment-variables)                                           |
+| Request flow               | [Animated Data Flow Diagram](#animated-data-flow-diagram) · [Context Data](#context-data) |
+| Browser pages and commands | [Navigation](#navigation) · [Usage](#usage)                                               |
+| Project files              | [Project Structure](#project-structure)                                                   |
+| Future directions          | [Possible Alternatives](#possible-alternatives)                                           |
+| Ownership and license      | [License](#license) · [Contact](#contact)                                                 |
 
 ## Key Features
 
@@ -28,12 +28,12 @@
 
 ## Tech Stack
 
-| Technology | Verified use |
-| --- | --- |
-| Python | Runtime for the Django management script |
-| Django 5.2.1 | Web framework and built-in admin |
-| SQLite | Database engine configured in `settings.py` |
-| HTML | `Template/index.html` page markup |
+| Technology   | Verified use                                |
+| ------------ | ------------------------------------------- |
+| Python       | Runtime for the Django management script    |
+| Django 5.2.1 | Web framework and built-in admin            |
+| SQLite       | Database engine configured in `settings.py` |
+| HTML         | `Template/index.html` page markup           |
 
 ## Getting Started
 
@@ -112,12 +112,12 @@ The diagram shows the implemented request path. Its SVG vectors are styled with 
 
 ### DFD Description
 
-| Stage | Source of truth | Responsibility |
-| --- | --- | --- |
-| Browser | `/index/` | Sends the page request and receives HTML. |
-| URL configuration | `myproject/urls.py` | Maps `index/` to the `index` view. |
-| View | `myproject/views.py` | Calls `render(request, 'index.html')`. |
-| Template | `Template/index.html` | Produces the `Hello World` HTML response. |
+| Stage             | Source of truth       | Responsibility                            |
+| ----------------- | --------------------- | ----------------------------------------- |
+| Browser           | `/index/`             | Sends the page request and receives HTML. |
+| URL configuration | `myproject/urls.py`   | Maps `index/` to the `index` view.        |
+| View              | `myproject/views.py`  | Calls `render(request, 'index.html')`.    |
+| Template          | `Template/index.html` | Produces the `Hello World` HTML response. |
 
 [Back to Contents](#context-menu)
 
@@ -178,10 +178,10 @@ This second snippet is an extension example, not an implemented feature.
 
 The URL configuration currently defines two routes. Neither route has an explicit `name=` value.
 
-| URL | Handler | URL name | Result |
-| --- | --- | --- | --- |
-| `/index/` | `myproject.views.index` | None | Renders `Template/index.html`. |
-| `/admin/` | `admin.site.urls` | Django admin namespace | Opens the built-in admin site. |
+| URL       | Handler                 | URL name               | Result                         |
+| --------- | ----------------------- | ---------------------- | ------------------------------ |
+| `/index/` | `myproject.views.index` | None                   | Renders `Template/index.html`. |
+| `/admin/` | `admin.site.urls`       | Django admin namespace | Opens the built-in admin site. |
 
 ```python
 # myproject/urls.py
