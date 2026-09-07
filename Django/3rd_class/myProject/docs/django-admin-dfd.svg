@@ -1,0 +1,26 @@
+<svg role="img" aria-labelledby="dfd-title dfd-desc" viewBox="0 0 960 220" width="960" height="220" xmlns="http://www.w3.org/2000/svg">
+  <title id="dfd-title">Django admin request flow</title>
+  <desc id="dfd-desc">A browser request moves through the URL configuration to Django's admin site, which reads the SQLite database and returns an HTML response.</desc>
+  <style>
+    .dfd-bg { fill: #111827; }
+    .dfd-node { fill: #1f2937; stroke: #f4b860; stroke-width: 2; }
+    .dfd-label { fill: #f9fafb; font: 600 16px sans-serif; text-anchor: middle; }
+    .dfd-sub { fill: #cbd5e1; font: 12px sans-serif; text-anchor: middle; }
+    .dfd-line { fill: none; stroke: #f4b860; stroke-width: 3; stroke-linecap: round; stroke-dasharray: 8 10; animation: dfd-flow 1.4s linear infinite; }
+    @keyframes dfd-flow { to { stroke-dashoffset: -36; } }
+  </style>
+  <rect class="dfd-bg" x="0" y="0" width="960" height="220" rx="14" />
+  <path class="dfd-line" d="M205 110H285M445 110H525M685 110H755" />
+  <rect class="dfd-node" x="35" y="70" width="170" height="80" rx="10" />
+  <rect class="dfd-node" x="285" y="70" width="160" height="80" rx="10" />
+  <rect class="dfd-node" x="525" y="70" width="160" height="80" rx="10" />
+  <rect class="dfd-node" x="755" y="70" width="170" height="80" rx="10" />
+  <text class="dfd-label" x="120" y="105">Browser</text>
+  <text class="dfd-sub" x="120" y="127">GET /admin/</text>
+  <text class="dfd-label" x="365" y="105">URLConf</text>
+  <text class="dfd-sub" x="365" y="127">myProject/urls.py</text>
+  <text class="dfd-label" x="605" y="105">Django Admin</text>
+  <text class="dfd-sub" x="605" y="127">admin.site.urls</text>
+  <text class="dfd-label" x="840" y="105">SQLite</text>
+  <text class="dfd-sub" x="840" y="127">db.sqlite3</text>
+</svg>
